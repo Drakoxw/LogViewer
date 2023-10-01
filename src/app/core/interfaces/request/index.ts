@@ -5,9 +5,9 @@ export interface QuotePayload {
 }
 
 export interface ShipmentPayload {
-  date?: string
+  date: string
   idEnterprise?: number
-  guide?: string
+  guide: string
 }
 
 export interface RelationsPayload {

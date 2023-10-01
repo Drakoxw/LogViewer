@@ -1,28 +1,27 @@
-import { DataQuoteLogsRequest } from "@interfaces/responses";
+import { DataQuoteLogsRequest, DataShipmentLog } from "@interfaces/responses";
+
+export const ShipmentVoidResponse: DataShipmentLog = {
+  idempresa: 0,
+  plugin: "",
+  fecha: "",
+  trama: [],
+  excepciones: [],
+  id: 0,
+  respuesta: [],
+  estado: "",
+  numGuia: ""
+}
 
 export const QuoteVoidResponse: DataQuoteLogsRequest = {
-  idEnterprise: 0,
-  uuid: "",
-  operatorQuote: 0,
-  timeQuote: "",
-  guide: "",
-  statusGuide: "",
-  shipmentOperatorId: 0,
-  dateShipment: "",
-  quotePayloadClient: {
-    idempresa: 0,
-    origen: "",
-    destino: "",
-    valorrecaudo: 0,
-    valorMinimo: 0,
-    idasumecosto: 0,
-    contraentrega: 0,
-    productos: []
-  },
-  bodyQuote: [],
-  responsesQuote: [],
-  excepctionsQuote: [],
-  shipmentPayloadClient: [],
-  excepctionsShipment: [],
-  responseShipment: []
+  id: 0,
+  idempresa: 0,
+  uuid: '',
+  fecha: '',
+  trama: {},
+  responses: [],
+  plugin: '',
+  idtransportador: 0,
+  excepciones: [],
+  body: [],
+  bad_responses: []
 }

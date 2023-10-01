@@ -133,6 +133,15 @@
   dependencies:
     tslib "^2.3.0"
 
+"@angular/cdk@^16.2.6":
+  version "16.2.6"
+  resolved "https://registry.yarnpkg.com/@angular/cdk/-/cdk-16.2.6.tgz#02a0fe1a1a9b3dc8cb043b0ce6d67a9d198dad57"
+  integrity sha512-vSaPs69xutbxc6IbZz4I5fMzZhlypsMg5JKKNAufmyYNNHQYgSQytpUd1/RxHhPF/JoEvj/J8QjauRriZFN+SA==
+  dependencies:
+    tslib "^2.3.0"
+  optionalDependencies:
+    parse5 "^7.1.2"
+
 "@angular/cli@16.2.4":
   version "16.2.4"
   resolved "https://registry.yarnpkg.com/@angular/cli/-/cli-16.2.4.tgz#5059d6e74992187ef7b14fd59973c68ec0e0fe3d"
@@ -5232,6 +5241,13 @@ neo-async@^2.6.2:
   version "2.6.2"
   resolved "https://registry.yarnpkg.com/neo-async/-/neo-async-2.6.2.tgz#b4aafb93e3aeb2d8174ca53cf163ab7d7308305f"
   integrity sha512-Yd3UES5mWCSqR+qNT93S3UoYUkqAZ9lLg8a7g9rimsWmYGK8cVToA4/sF3RrshdyV3sAGMXVUmpMYOw+dLpOuw==
+
+ngx-toastr@^17.0.2:
+  version "17.0.2"
+  resolved "https://registry.yarnpkg.com/ngx-toastr/-/ngx-toastr-17.0.2.tgz#fb7bb4fc22e5425bbacde0856165d30b7900adec"
+  integrity sha512-KehiPx6bkbiUyJbabf0ZA04+ASumS8r/y4wPsUOMI9OrBvBcfq27UQmWuQKoVR8E+9y4Pq7eZkSg2kvxNvpxTA==
+  dependencies:
+    tslib "^2.3.0"
 
 nice-napi@^1.0.2:
   version "1.0.2"
