@@ -121,3 +121,153 @@ export interface Trama {
 export interface ShipmentLogsResponse extends ResponseBase {
   data: DataShipmentLog[];
 }
+
+// ######################################################### //
+
+export interface RelationsLogsResponse {
+  status: string
+  message: string
+  data: DataRelationsLog[]
+}
+
+export interface DataRelationsLog {
+  idempresa: number
+  uuid: string
+  operatorQuote: number
+  timeQuote: string
+  guide: string
+  statusGuide: string
+  shipmentOperatorId: number
+  dateShipment: string
+  quotePayloadClient: QuotePayloadClient|[]
+  bodyQuote: BodyQuote|[]
+  responsesQuote: ResponsesQuote[]
+  excepctionsQuote: any[]
+  shipmentPayloadClient: ShipmentPayloadClient|[]
+  excepctionsShipment: any[]
+  responseShipment: any
+}
+
+export interface Producto {
+  alto: string
+  largo: string
+  ancho: string
+  peso: string
+  unidades: number
+  nombre: string
+  valorDeclarado: string
+}
+
+export interface BodyQuote {
+  origen: string
+  destino: string
+  idsercontraentrega: number
+  kilos: number
+  dsvalorrecaudo: number
+  valordeclarado: number
+  idasumecosto: number
+  origenpedidos: number
+  unidades: number
+  idempresa: number
+  pesoVol: number
+  idalto: number
+  idancho: number
+  idlargo: number
+  plugin: string
+}
+
+export interface ResponsesQuote {
+  numbererror: string
+  dataerror: string
+  codigotransportadora: string
+  transportadora: string
+  logotransportadora: string
+  logotransportadora2: string
+  origen: string
+  destino: string
+  unidades: number
+  kilosacobrar: number
+  pesovolumen: number
+  valoracion: number
+  porvaloracion: string
+  trayecto: string
+  codtrayecto: string
+  tipoenvio: string
+  fletexkilo: number
+  fletexund: number
+  fletetotal: number
+  diasentrega: string
+  flete: number
+  costomanejo: number
+  valortotal: number
+  valorotros: number
+  grantotal: number
+  codmostrartransportadora: string
+  topemaximo: number
+  dscontraentrega: number
+  alto: number
+  largo: number
+  ancho: number
+  uuid: string
+}
+
+export interface ShipmentPayloadClient {
+  uuid: string
+  paymentLink: boolean
+  ValorPagarUrb: any
+  idempresa: number
+  idtransportador: string
+  idasumecosto: number
+  contraentrega: number
+  valorrecaudo: number
+  idagente: string
+  dsreferencia: string
+  dsordendecompra: any
+  bloquegenerarguia: string
+  relacion_envios: string
+  enviarcorreos: string
+  cartaporte: any
+  valorMinimo: number
+  numeroBolsa: any
+  numeroFactura: string
+  dsvalor_pedido: number
+  dsfecha_vencimiento: any
+  dsfecha_cita: any
+  dscodigo_cita: any
+  origen: string
+  dsdirre: string
+  dsbarrioo: string
+  dstelre: string
+  dscelularre: string
+  dscorreopre: string
+  dsnombre: string
+  dsnitre: string
+  destino: string
+  IdTipoEntrega: any
+  dsdir: string
+  dsbarrio: string
+  dsnit: string
+  dsnombrecompleto: string
+  dscorreop: string
+  dstel: string
+  dscelular: string
+  unidades: number
+  dscontenido: string
+  dscom: string
+  valorTransRecaudoUrbano: number
+  fleteUrbano: number
+  costoRecaudoUrbano: number
+  productos: Producto2[]
+}
+
+export interface Producto2 {
+  alto: string
+  largo: string
+  ancho: string
+  peso: string
+  unidades: number
+  nombre: string
+  ref: any
+  valorDeclarado: string
+}
+

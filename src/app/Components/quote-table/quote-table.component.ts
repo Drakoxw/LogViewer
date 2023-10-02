@@ -50,8 +50,14 @@ export class QuoteTableComponent implements OnInit, OnDestroy {
     this.showDetail = true;
   }
 
-  refreshTable() {
-    this.btnText = 'Buscando...'
+  reload() {
+    this.date = '';
+    this.idEnterprise = '';
+    this.refreshTable('Restaurando...')
+  }
+
+  refreshTable(text = '') {
+    this.btnText = text ? text : 'Buscando...'
     this.load = true;
     const payload: QuotePayload = { date: this.date };
     if (this.idEnterprise) {

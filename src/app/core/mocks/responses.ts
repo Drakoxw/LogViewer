@@ -1,4 +1,4 @@
-import { DataQuoteLogsRequest, DataShipmentLog } from "@interfaces/responses";
+import { DataQuoteLogsRequest, DataRelationsLog, DataShipmentLog } from "@interfaces/responses";
 
 export const ShipmentVoidResponse: DataShipmentLog = {
   idempresa: 0,
@@ -24,4 +24,22 @@ export const QuoteVoidResponse: DataQuoteLogsRequest = {
   excepciones: [],
   body: [],
   bad_responses: []
+}
+
+export const RelationsVoidResponse: DataRelationsLog = {
+  idempresa: 0,
+  uuid: "",
+  operatorQuote: 0,
+  timeQuote: "",
+  guide: "",
+  statusGuide: "",
+  shipmentOperatorId: 0,
+  dateShipment: "",
+  quotePayloadClient: [],
+  bodyQuote: [],
+  responsesQuote: [],
+  excepctionsQuote: [],
+  shipmentPayloadClient: [],
+  excepctionsShipment: [],
+  responseShipment: []
 }

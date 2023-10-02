@@ -5,9 +5,9 @@ import { map, catchError } from 'rxjs/operators';
 
 import { URL_API_BASE } from '@constants/index';
 import { logDev } from '@utils/index';
-import { QuotePayload, ShipmentPayload } from '@interfaces/request';
-import { DataQuoteLogsRequest, DataShipmentLog, QuoteLogsResponse, ShipmentLogsResponse } from '@interfaces/responses';
-import { QuoteVoidResponse, ShipmentVoidResponse } from '@mocks/index';
+import { QuotePayload, RelationsPayload, ShipmentPayload } from '@interfaces/request';
+import { DataQuoteLogsRequest, DataRelationsLog, DataShipmentLog, QuoteLogsResponse, RelationsLogsResponse, ShipmentLogsResponse } from '@interfaces/responses';
+import { QuoteVoidResponse, RelationsVoidResponse, ShipmentVoidResponse } from '@mocks/index';
 
 
 @Injectable({
@@ -58,6 +58,23 @@ export class HttpService {
   }> {
     const res = { error: false, msg: '', data: [ShipmentVoidResponse] };
     return this.http.get<ShipmentLogsResponse>(`${this.url}/logs/shipment-logs?x-limit=200&guide=${payload.guide}&date=${payload.date}&id-enterprise=${payload.idEnterprise ?? ''}`)
+      .pipe(
+        map((r) => {
+          res.msg = r.message;
+          res.data = r.data;
+          return res;
+        }),
+        catchError(this.error)
+      );
+  }
+
+  RelationsLogs(payload: RelationsPayload): Observable<{
+    error: boolean
+    msg: string
+    data?: DataRelationsLog[]
+  }> {
+    const res = { error: false, msg: '', data: [RelationsVoidResponse] };
+    return this.http.get<RelationsLogsResponse>(`${this.url}/logs/relation-logs?x-limit=200&uuid=${payload.uuid}&date=${payload.date}&id-enterprise=${payload.idEnterprise ?? ''}`)
       .pipe(
         map((r) => {
           res.msg = r.message;

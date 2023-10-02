@@ -51,8 +51,15 @@ export class ShipmentTableComponent {
     this.showDetail = true;
   }
 
-  refreshTable() {
-    this.btnText = 'Buscando...'
+  reload() {
+    this.date = '';
+    this.guide = '';
+    this.idEnterprise = '';
+    this.refreshTable('Restaurando...')
+  }
+
+  refreshTable(text = '') {
+    this.btnText = text ? text : 'Buscando...'
     this.load = true;
     const payload: ShipmentPayload = { date: this.date, guide: this.guide };
 

@@ -20,6 +20,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FilterTablePipe } from './core/pipes/filter-table.pipe';
 import { FooterTableComponent } from './Components/footer-table/footer-table.component';
 import { FilterShipmentTablePipe } from './core/pipes/filter-shipment-table.pipe';
+import { FilterRelationTablePipe } from './core/pipes/filter-relation-table.pipe';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { FilterShipmentTablePipe } from './core/pipes/filter-shipment-table.pipe
     DetailsTableComponent,
     FilterTablePipe,
     FooterTableComponent,
-    FilterShipmentTablePipe
+    FilterShipmentTablePipe,
+    FilterRelationTablePipe
   ],
   imports: [
     BrowserModule,
