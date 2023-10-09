@@ -1,0 +1,32 @@
+<section class="w-full mt-6">
+  <div class="text-sm text-left text-gray-500 dark:text-gray-400">
+    <div
+      class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400"
+    >
+      <div class="flex font-bold">
+        <div scope="col" class="px-6 py-3 w-1/6">Fecha</div>
+        <div scope="col" class="px-6 py-3 w-1/10">Entorno</div>
+        <div scope="col" class="px-6 py-3 ml-3 w-1/12">Tipo</div>
+        <div scope="col" class="px-6 py-3 w-auto">Data</div>
+      </div>
+    </div>
+    <div
+      *ngFor="let item of _data | filterFile:filter:page:length"
+      class="bg-white w-full flex border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600"
+    >
+      <div class="px-6 py-4 w-1/6 font-medium text-gray-900 whitespace-nowrap dark:text-white">{{ item.date }}</div>
+      <div class="px-6 py-4 w-1/10">{{ item.environment }}</div>
+      <div class="px-6 py-4 w-1/12">{{ item.type_log }}</div>
+      <div class="px-6 py-4 w-auto">{{ item.payload | strToJson | json }}</div>
+    </div>
+  </div>
+</section>
+
+<app-footer-table
+  [total]="filter ? (_data | filterFile:filter:1: _data.length).length : _data.length "
+  [page]="page"
+  [limit]="length"
+  (goToPage)="page = $event"
+  (nextPage)="next()"
+  (prevPage)="prev()"
+/>

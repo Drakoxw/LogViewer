@@ -1,0 +1,6 @@
+<app-header (changeTable)="change($event)" />
+<div class="w-full px-8 py-4">
+  <app-quote-table *ngIf="table == click.cotizaciones" />
+  <app-relations-table *ngIf="table == click.asosiaciones" />
+  <app-shipment-table *ngIf="table == click.guias" />
+</div>

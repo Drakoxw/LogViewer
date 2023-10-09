@@ -21,6 +21,12 @@ import { FilterTablePipe } from './core/pipes/filter-table.pipe';
 import { FooterTableComponent } from './Components/footer-table/footer-table.component';
 import { FilterShipmentTablePipe } from './core/pipes/filter-shipment-table.pipe';
 import { FilterRelationTablePipe } from './core/pipes/filter-relation-table.pipe';
+import { GuidesComponent } from './Views/guides/guides.component';
+import { FilesComponent } from './Views/files/files.component';
+import { FileNavBarComponent } from './Components/Files/file-nav-bar/file-nav-bar.component';
+import { FileTablesComponent } from './Components/Files/file-tables/file-tables.component';
+import { FilterFilePipe } from './core/pipes/filter-file.pipe';
+import { StrToJsonPipe } from './core/pipes/str-to-json.pipe';
 
 @NgModule({
   declarations: [
@@ -34,7 +40,13 @@ import { FilterRelationTablePipe } from './core/pipes/filter-relation-table.pipe
     FilterTablePipe,
     FooterTableComponent,
     FilterShipmentTablePipe,
-    FilterRelationTablePipe
+    FilterRelationTablePipe,
+    GuidesComponent,
+    FilesComponent,
+    FileNavBarComponent,
+    FileTablesComponent,
+    FilterFilePipe,
+    StrToJsonPipe,
   ],
   imports: [
     BrowserModule,

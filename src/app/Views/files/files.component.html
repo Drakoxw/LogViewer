@@ -1,0 +1,11 @@
+<section class="w-full h-auto flex px-4 gap-4">
+
+  <app-file-nav-bar
+    (newFile)="onLoadDataFile($event)"
+    [load]="load"
+    [list]="listFiles"
+    class="w-1/5"
+  />
+
+  <app-file-tables [data]="data" class="w-4/5" />
+</section>

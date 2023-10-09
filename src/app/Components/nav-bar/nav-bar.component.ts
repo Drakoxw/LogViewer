@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./nav-bar.component.css']
 })
 export class NavBarComponent {
-  show: boolean = false;
+  showNavbar:boolean = false;
+  routes = { home: 'guides', file: 'files'}
 }

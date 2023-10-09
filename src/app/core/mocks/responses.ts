@@ -1,4 +1,4 @@
-import { DataQuoteLogsRequest, DataRelationsLog, DataShipmentLog } from "@interfaces/responses";
+import { DataFilesLogs, DataQuoteLogsRequest, DataRelationsLog, DataShipmentLog } from "@interfaces/responses";
 
 export const ShipmentVoidResponse: DataShipmentLog = {
   idempresa: 0,
@@ -42,4 +42,11 @@ export const RelationsVoidResponse: DataRelationsLog = {
   shipmentPayloadClient: [],
   excepctionsShipment: [],
   responseShipment: []
+}
+
+export const DataFilesVoidResponse: DataFilesLogs = {
+  date: "",
+  environment: "",
+  type_log: "",
+  payload: ""
 }
