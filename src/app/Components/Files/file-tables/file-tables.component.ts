@@ -8,6 +8,11 @@ import { DataFilesLogs } from '@interfaces/responses';
 })
 export class FileTablesComponent {
   _data: DataFilesLogs[] = []
+  _loadData: boolean = false;
+
+  @Input() set loadData (value: boolean) {
+    this._loadData = value;
+  }
 
   @Input() set data(value: DataFilesLogs[]) {
     this._data = value;

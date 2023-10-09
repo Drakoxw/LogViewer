@@ -12,6 +12,7 @@ import { Subscription } from 'rxjs';
 export class FilesComponent implements OnInit {
 
   load: boolean = false;
+  loadFile: boolean = false;
 
   listFiles: string[] = [];
 
@@ -34,14 +35,16 @@ export class FilesComponent implements OnInit {
   }
 
   onLoadDataFile(file: string) {
+    this.loadFile = true;
+    this.data = [];
     const fileName = file.replace('.log', '');
     this.subs[1] = this.http.GetDataFilesLogs(fileName).subscribe((res) => {
       if (res.error) { this.toast.error(res.msg); }
       if (res.data) {
         this.data = res.data;
       }
+      this.loadFile = false;
     })
-
   }
 
 }

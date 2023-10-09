@@ -7,25 +7,27 @@
     <span class="font-semibol ">{{ _page == 1 ? _page : (_page - 1) * limit }}-{{ _page == 1 ? limit : (_page - 1 ) * limit + limit }}</span> of
     <span class="font-semibol ">{{ _total }}</span></span
   >
-  <ul class="inline-flex -space-x-px text-sm h-8">
-    <li>
+  <div class="flex">
+    <div>
       <button (click)="onPrev()"
         class="flex items-center justify-center px-3 h-8 ml-0 leading-tight text-gray-500 bg-white border border-gray-300 rounded-l-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
         >Previous</button
       >
-    </li>
-    <li *ngFor="let p of pages">
-      <button (click)="goTo(p)"
-        class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500  border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 "
-        [class]="p == _page ? 'bg-gray-100 dark:bg-gray-700 dark:text-white' : 'bg-white dark:hover:bg-gray-700 dark:hover:text-white' "
-        >{{ p }}</button
-      >
-    </li>
-    <li>
+    </div>
+    <ul class="inline-flex -space-x-px text-sm h-8 max-w-[50vw] overflow-auto">
+      <li *ngFor="let p of pages" >
+        <button (click)="goTo(p)"
+          class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500  border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 "
+          [class]="p == _page ? 'bg-gray-100 dark:bg-gray-700 dark:text-white' : 'bg-white dark:hover:bg-gray-700 dark:hover:text-white' "
+          >{{ p }}</button
+        >
+      </li>
+    </ul>
+    <div>
       <button (click)="onNext()"
         class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 rounded-r-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
         >Next</button
       >
-    </li>
-  </ul>
+    </div>
+  </div>
 </nav>

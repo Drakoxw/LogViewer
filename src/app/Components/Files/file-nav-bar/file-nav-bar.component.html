@@ -22,16 +22,18 @@
     <span class="sr-only">Loading...</span>
   </div>
 
-  <ul class="w-full max-h-[80vh] py-2 text-sm text-gray-700 dark:text-gray-200 overflow-y-auto overflow-x-hidden">
-    <li
-      *ngFor="let item of _list"
-      (click)="OnLoadNewFile(item)"
-      class="cursor-pointer"
-    >
-      <span
-        class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-        >{{ item }}</span
+  <div class="px-2 text-gray-700 dark:text-gray-200  overflow-x-hidden">
+    <ul class="w-full py-2 text-sm max-h-[80vh] overflow-y-auto mt-2">
+      <li
+        *ngFor="let item of _list"
+        (click)="OnLoadNewFile(item)"
+        class="cursor-pointer"
       >
-    </li>
-  </ul>
+        <span
+          class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+          >{{ item }}</span
+        >
+      </li>
+    </ul>
+  </div>
 </div>
