@@ -1,11 +1,18 @@
 <section class="w-full h-auto flex px-4 gap-4">
+  <div class="w-1/5 mt-6">
+    <p
+      class="bg-white rounded-lg shadow dark:bg-gray-70 py-1 px-2 text-xs font-semibold"
+    >
+      {{ uploadedFile }}
+    </p>
 
-  <app-file-nav-bar
-    (newFile)="onLoadDataFile($event)"
-    [load]="load"
-    [list]="listFiles"
-    class="w-1/5"
-  />
+    <app-file-nav-bar
+      (deleteFile)="onDestroyFile($event)"
+      (newFile)="onLoadDataFile($event)"
+      [load]="load"
+      [list]="listFiles"
+    />
+  </div>
 
   <app-file-tables [loadData]="loadFile" [data]="data" class="w-4/5" />
 </section>

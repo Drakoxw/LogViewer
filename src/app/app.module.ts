@@ -27,6 +27,7 @@ import { FileNavBarComponent } from './Components/Files/file-nav-bar/file-nav-ba
 import { FileTablesComponent } from './Components/Files/file-tables/file-tables.component';
 import { FilterFilePipe } from './core/pipes/filter-file.pipe';
 import { StrToJsonPipe } from './core/pipes/str-to-json.pipe';
+import { FilterListFilesPipe } from './core/pipes/filter-list-files.pipe';
 
 @NgModule({
   declarations: [
@@ -47,6 +48,7 @@ import { StrToJsonPipe } from './core/pipes/str-to-json.pipe';
     FileTablesComponent,
     FilterFilePipe,
     StrToJsonPipe,
+    FilterListFilesPipe,
   ],
   imports: [
     BrowserModule,

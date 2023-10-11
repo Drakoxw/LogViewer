@@ -16,6 +16,7 @@ import {
   DataQuoteLogsRequest,
   DataRelationsLog,
   DataShipmentLog,
+  DeleteLogsResponse,
   ListFilesLogsResponse,
   QuoteLogsResponse,
   RelationsLogsResponse,
@@ -145,6 +146,24 @@ export class HttpService {
     const res = { error: false, msg: '', data: [DataFilesVoidResponse] };
     return this.http
       .get<DataFilesLogsResponse>(`${this.appUrl}/index.php?log=${file}`)
+      .pipe(
+        map((r) => {
+          res.msg = r.message;
+          res.data = r.data;
+          return res;
+        }),
+        catchError(this.error)
+      );
+  }
+
+  DeleteFileLogs(file: string): Observable<{
+    error: boolean;
+    msg: string;
+    data?: string[];
+  }> {
+    const res = { error: false, msg: '', data: [''] };
+    return this.http
+      .delete<DeleteLogsResponse>(`${this.appUrl}/index.php?log=${file}`)
       .pipe(
         map((r) => {
           res.msg = r.message;

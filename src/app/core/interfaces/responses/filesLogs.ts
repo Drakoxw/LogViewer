@@ -22,3 +22,7 @@ export interface DataFilesLogs {
 export interface DataFilesLogsResponse extends ResponseBase {
   data: DataFilesLogs[];
 }
+
+export interface DeleteLogsResponse extends ResponseBase {
+  data: string[];
+}
