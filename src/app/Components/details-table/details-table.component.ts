@@ -9,6 +9,7 @@ import { Clipboard } from '@angular/cdk/clipboard';
 })
 export class DetailsTableComponent {
   @Input() detail: Object | Array<any> = [];
+  @Input() fixStyle: boolean = false;
   @Output() close = new EventEmitter<boolean>();
 
   constructor(

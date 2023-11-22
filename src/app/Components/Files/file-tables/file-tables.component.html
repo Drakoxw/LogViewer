@@ -1,4 +1,21 @@
+<section *ngIf="showDetail">
+  <app-details-table [detail]="detail" (close)="showDetail = false" />
+</section>
+
 <section class="w-full mt-6">
+  <div class="w-full flex justify-end p-1">
+
+    <div class="max-w-sm">
+      <input
+        type="search"
+        id="default-search"
+        [(ngModel)]="filter"
+        class="block w-full p-2 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+        placeholder="Filter data"
+      />
+    </div>
+  </div>
+
   <div class="text-sm text-left text-gray-500 dark:text-gray-400">
     <div
       class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400"
@@ -41,7 +58,7 @@
         </div>
         <div class="px-6 py-4 w-1/10">{{ item.environment }}</div>
         <div class="px-6 py-4 w-1/12">{{ item.type_log }}</div>
-        <div class="px-6 py-4 w-auto">
+        <div class="px-6 py-4 w-auto" (dblclick)="openDetail(item.payload)">
           {{ item.payload | strToJson | json }}
         </div>
       </div>

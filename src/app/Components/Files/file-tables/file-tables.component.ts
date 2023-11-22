@@ -21,10 +21,8 @@ export class FileTablesComponent {
   filter: string = '';
   page = 1;
   length = 20;
-
-  onJson(x: string) {
-    return JSON.parse(x)
-  }
+  showDetail: boolean = false;
+  detail: Object | Array<any> = [];
 
   next() {
     this.page += 1;
@@ -32,6 +30,11 @@ export class FileTablesComponent {
 
   prev() {
     this.page -= 1;
+  }
+
+  openDetail(data: Object | Array<any>) {
+    this.detail = data;
+    this.showDetail = true;
   }
 }
 

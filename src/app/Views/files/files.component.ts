@@ -55,7 +55,7 @@ export class FilesComponent implements OnInit, OnDestroy {
     this.subs[1] = this.http.GetDataFilesLogs(fileName).subscribe((res) => {
       if (res.error) { this.toast.error(res.msg); }
       if (res.data) {
-        this.data = res.data;
+        this.data = res.data.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());;
       }
       this.loadFile = false;
     })
