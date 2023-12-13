@@ -5,6 +5,7 @@ export const ShipmentVoidResponse: DataShipmentLog = {
   plugin: "",
   fecha: "",
   trama: [],
+  trama_sw: [],
   excepciones: [],
   id: 0,
   respuesta: [],

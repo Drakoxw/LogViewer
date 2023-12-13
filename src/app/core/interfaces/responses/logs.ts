@@ -40,6 +40,7 @@ export interface DataShipmentLog {
   plugin: string;
   fecha: string;
   trama: Trama|Array<any>;
+  trama_sw: Object|Array<any>;
   uuid?: string;
   excepciones: any[];
   id: number;

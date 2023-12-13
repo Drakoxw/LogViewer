@@ -35,7 +35,7 @@
 
         <button
           (click)="refreshTable()"
-          [disabled]="date == '' && idEnterprise == '' && guide == '' "
+          [disabled]="date == '' && idEnterprise == '' && guide == ''"
           type="button"
           class="text-white bg-green-700 hover:bg-green-800 focus:outline-none focus:ring-4 focus:ring-green-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800"
         >
@@ -66,7 +66,8 @@
         </button>
 
         <!-- reload -->
-        <button (click)="reload()"
+        <button
+          (click)="reload()"
           type="button"
           class="text-white bg-yellow-400 hover:bg-yellow-500 focus:outline-none focus:ring-4 focus:ring-yellow-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:focus:ring-yellow-900"
         >
@@ -87,7 +88,6 @@
             />
           </svg>
         </button>
-
       </div>
     </div>
 
@@ -132,13 +132,14 @@
         <th scope="col" class="px-6 py-3">Fecha</th>
         <th scope="col" class="px-6 py-3">Status</th>
         <th scope="col" class="px-6 py-3">Trama Cli</th>
+        <th scope="col" class="px-6 py-3">Trama WS</th>
         <th scope="col" class="px-6 py-3">Respuesta WS</th>
         <th scope="col" class="px-6 py-3">Excepciones</th>
       </tr>
     </thead>
     <tbody>
       <tr
-        *ngFor="let item of data | filterShipmentTable:filter:page:length"
+        *ngFor="let item of data | filterShipmentTable : filter : page : length"
         class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600"
       >
         <th
@@ -158,7 +159,12 @@
         >
           {{ item.trama | json | slice : 0 : 50 }}
         </td>
-
+        <td
+          class="px-6 py-4 cursor-pointer"
+          (dblclick)="openDetail(item.trama_sw)"
+        >
+          {{ item.trama_sw | json | slice : 0 : 50 }}
+        </td>
         <td
           class="px-6 py-4 cursor-pointer"
           (dblclick)="openDetail(item.respuesta)"
@@ -169,7 +175,7 @@
           class="px-6 py-4 cursor-pointer"
           (dblclick)="openDetail(item.excepciones)"
         >
-          {{ item.excepciones| json | slice : 0 : 50 }}
+          {{ item.excepciones | json | slice : 0 : 50 }}
         </td>
       </tr>
     </tbody>
@@ -177,11 +183,14 @@
 </div>
 
 <app-footer-table
-  [total]="filter ? (data | filterShipmentTable : filter : 1 : data.length).length : data.length"
+  [total]="
+    filter
+      ? (data | filterShipmentTable : filter : 1 : data.length).length
+      : data.length
+  "
   [page]="page"
   [limit]="length"
   (goToPage)="page = $event"
   (nextPage)="next()"
   (prevPage)="prev()"
 />
-
