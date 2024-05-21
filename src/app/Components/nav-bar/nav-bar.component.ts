@@ -7,5 +7,5 @@ import { Component } from '@angular/core';
 })
 export class NavBarComponent {
   showNavbar:boolean = false;
-  routes = { home: 'guides', file: 'files'}
+  routes = { home: 'guides', file: 'files', mim: 'mim' }
 }

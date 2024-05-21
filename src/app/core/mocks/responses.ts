@@ -1,4 +1,4 @@
-import { DataFilesLogs, DataQuoteLogsRequest, DataRelationsLog, DataShipmentLog } from "@interfaces/responses";
+import { DataFilesLogs, DataQuoteLogsRequest, DataRelationsLog, DataShipmentLog, MimError } from "@interfaces/responses";
 
 export const ShipmentVoidResponse: DataShipmentLog = {
   idempresa: 0,
@@ -50,4 +50,27 @@ export const DataFilesVoidResponse: DataFilesLogs = {
   environment: "",
   type_log: "",
   payload: ""
+}
+
+export const MimErorVoidResponse: MimError = {
+  id_error: "",
+  contacto: "",
+  canal: null,
+  pedido_token: null,
+  pedido_order_number: null,
+  pedido_valor: null,
+  pedido_destinatario: null,
+  pedido_destino: null,
+  pedido_address: null,
+  pedido_phone: null,
+  pedido_email: null,
+  pedido_items: [],
+  error: {},
+  scope: "",
+  event: "",
+  tipo: null,
+  mensaje: "",
+  payload: {},
+  job_start_time: "",
+  job_finish_time: ""
 }

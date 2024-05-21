@@ -28,6 +28,9 @@ import { FileTablesComponent } from './Components/Files/file-tables/file-tables.
 import { FilterFilePipe } from './core/pipes/filter-file.pipe';
 import { StrToJsonPipe } from './core/pipes/str-to-json.pipe';
 import { FilterListFilesPipe } from './core/pipes/filter-list-files.pipe';
+import { MimTableComponent } from './Components/mim-table/mim-table.component';
+import { MimComponent } from './Views/mim/mim.component';
+import { FilterErrorsPipe } from './core/pipes/filter-errors.pipe';
 
 @NgModule({
   declarations: [
@@ -36,6 +39,8 @@ import { FilterListFilesPipe } from './core/pipes/filter-list-files.pipe';
     HeaderComponent,
     QuoteTableComponent,
     RelationsTableComponent,
+    MimTableComponent,
+    MimComponent,
     ShipmentTableComponent,
     DetailsTableComponent,
     FilterTablePipe,
@@ -49,6 +54,7 @@ import { FilterListFilesPipe } from './core/pipes/filter-list-files.pipe';
     FilterFilePipe,
     StrToJsonPipe,
     FilterListFilesPipe,
+    FilterErrorsPipe,
   ],
   imports: [
     BrowserModule,
