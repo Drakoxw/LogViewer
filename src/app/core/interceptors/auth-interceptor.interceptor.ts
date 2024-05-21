@@ -15,7 +15,10 @@ export class AuthInterceptorInterceptor implements HttpInterceptor {
 
   intercept(req: HttpRequest<any>, next: HttpHandler) {
     // Get the auth token from the service.
-    const authToken = this.storageServ.getToken();
+    let authToken
+    req.url.includes('apiflujos.com')
+    ?  authToken ='Bearer BJyvwJrYsOJVaps0HoSKi-0N6ig-w6R7'
+    :  authToken = this.storageServ.getToken();
 
     const authReq = req.clone({
       headers: req.headers.set('Authorization', authToken)

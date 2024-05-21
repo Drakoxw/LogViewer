@@ -272,3 +272,33 @@ export interface Producto2 {
   valorDeclarado: string
 }
 
+// ######################################################### //
+
+
+export interface MimErrorResponse extends ResponseBase {
+  success: boolean
+  errores: Array<MimError>
+}
+
+export interface MimError {
+  id_error: string
+  contacto: string
+  canal: string|null
+  pedido_token: string|null
+  pedido_order_number: number|null
+  pedido_valor: number|null
+  pedido_destinatario: string|null
+  pedido_destino: string|null
+  pedido_address: string|null
+  pedido_phone: string|null
+  pedido_email: string|null
+  pedido_items: Array<any>
+  error: object
+  scope: string
+  event: string
+  tipo: number|null
+  mensaje: string
+  payload: object
+  job_start_time: string
+  job_finish_time: string
+}

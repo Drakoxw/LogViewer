@@ -15,3 +15,9 @@ export interface RelationsPayload {
   idEnterprise?: number
   uuid?: string
 }
+
+export interface MimErrorRequestPayload {
+  idEnterprise?: number
+  page?: number
+  limit?: number
+}

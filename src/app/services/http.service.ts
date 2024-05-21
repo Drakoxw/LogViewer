@@ -1,14 +1,15 @@
 import { Injectable, inject } from '@angular/core';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
 
-import { URL_API_BASE, URL_APP_OLD } from '@constants/index';
+import { URL_API_BASE, URL_APP_OLD, URL_API_MIM_ERRORES, MIM_API_TOKEN } from '@constants/index';
 import { logDev } from '@utils/index';
 import {
   QuotePayload,
   RelationsPayload,
   ShipmentPayload,
+  MimErrorRequestPayload,
 } from '@interfaces/request';
 import {
   DataFilesLogs,
@@ -21,9 +22,12 @@ import {
   QuoteLogsResponse,
   RelationsLogsResponse,
   ShipmentLogsResponse,
+  MimError,
+  MimErrorResponse,
 } from '@interfaces/responses';
 import {
   DataFilesVoidResponse,
+  MimErorVoidResponse,
   QuoteVoidResponse,
   RelationsVoidResponse,
   ShipmentVoidResponse,
@@ -38,6 +42,8 @@ export class HttpService {
   private url = URL_API_BASE;
 
   private appUrl = URL_APP_OLD;
+
+  private apiFlujosUrl = URL_API_MIM_ERRORES;
 
   /**
    * No importar!
@@ -172,5 +178,26 @@ export class HttpService {
         }),
         catchError(this.error)
       );
+  }
+
+  MimErrors(payload: MimErrorRequestPayload): Observable<{
+    data?: Array<MimError>;
+    error: boolean;
+    msg: string;
+   }> {
+    const response = { error: true, msg:"test", data: [MimErorVoidResponse] };
+    return this.http
+    .get<MimErrorResponse>(`${this.apiFlujosUrl}?id_empresa=${payload.idEnterprise ?? ''}&limit=${payload.limit?? 200}&page=${payload.page ?? 1}`
+    )
+    .pipe(
+      map((r) => {
+        response.error = !r.success;
+        response.data = r.errores;
+        return response
+      }),
+      catchError(this.error)
+
+    )
+
   }
 }
