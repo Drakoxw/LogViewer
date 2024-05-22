@@ -7,14 +7,14 @@
   <div class="flex items-center justify-between pb-4">
     <div class="py-2">
       <div class="w-auto flex gap-2 ml-1">
-        <div class="relative max-w-sm">
+        <!-- <div class="relative max-w-sm">
           <input
             [(ngModel)]="date"
             type="date"
             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             placeholder="Busca por fecha"
           />
-        </div>
+        </div> -->
 
         <div class="relative max-w-sm">
           <input
@@ -116,15 +116,22 @@
       class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400"
     >
       <tr>
-        <th scope="col" class="px-6 py-3">Id Empresa</th>
         <th scope="col" class="px-6 py-3">uuid Error</th>
+        <!-- <th scope="col" class="px-6 py-3">Id Empresa</th> -->
         <th scope="col" class="px-6 py-3">Contacto</th>
         <th scope="col" class="px-6 py-3">Canal</th>
-        <th scope="col" class="px-6 py-3">Trama Cli</th>
-        <th scope="col" class="px-6 py-3">Payload WS</th>
-        <th scope="col" class="px-6 py-3">Respuesta WS</th>
+        <th scope="col" class="px-6 py-3">pedido token</th>
+        <th scope="col" class="px-6 py-3">pedido order number</th>
+        <th scope="col" class="px-6 py-3">pedido valor</th>
+        <th scope="col" class="px-6 py-3">pedido destinatario</th>
+        <th scope="col" class="px-6 py-3">pedido destino</th>
+        <th scope="col" class="px-6 py-3">pedido dirección</th>
+        <th scope="col" class="px-6 py-3">pedido teléfono</th>
+        <th scope="col" class="px-6 py-3">pedido email</th>
+        <th scope="col" class="px-6 py-3">pedido items</th>
+        <th scope="col" class="px-6 py-3">Scope</th>
         <th scope="col" class="px-6 py-3">Errores</th>
-        <th scope="col" class="px-6 py-3">Excepciones</th>
+        <th scope="col" class="px-6 py-3">Payload</th>
       </tr>
     </thead>
     <tbody>
@@ -138,6 +145,7 @@
         >
           {{ item.id_error }}
         </th>
+        <!-- <td class="px-6 py-4">{{ item.id_error }}</td> -->
         <td class="px-6 py-4">{{ item.contacto }}</td>
         <td class="px-6 py-4">{{ item.canal }}</td>
         <td class="px-6 py-4">{{ item.pedido_token }}</td>
@@ -148,8 +156,12 @@
         <td class="px-6 py-4">{{ item.pedido_address}}</td>
         <td class="px-6 py-4">{{ item.pedido_phone}}</td>
         <td class="px-6 py-4">{{ item.pedido_email}}</td>
-        <td class="px-6 py-4">{{ item.pedido_items}}</td>
-        <td class="px-6 py-4">{{ item.scope}}</td>
+        <td
+        class="px-6 py-4 cursor-pointer"
+        (dblclick)="openDetail(item.pedido_items)"
+      >
+        {{ item.pedido_items | json | slice : 0 : 50 }}
+      </td>
         <td class="px-6 py-4">{{ item.scope}}</td>
         <td
           class="px-6 py-4 cursor-pointer"

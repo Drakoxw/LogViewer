@@ -3,7 +3,7 @@ import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http
 import { Observable, of } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
 
-import { URL_API_BASE, URL_APP_OLD, URL_API_MIM_ERRORES, MIM_API_TOKEN } from '@constants/index';
+import { URL_API_BASE, URL_APP_OLD, URL_API_MIM_ERRORES } from '@constants/index';
 import { logDev } from '@utils/index';
 import {
   QuotePayload,
